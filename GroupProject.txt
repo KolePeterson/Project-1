@@ -1,0 +1,56 @@
+﻿Entity Types
+* Hospital Has wards  --- one to many
+* Hospital has Pharmaceutical supplies and surgical and nonsurgical supplies --- one to many
+* Wards have ward requisition --- many to many 
+* Hospital Has medical director ---- one to many or one to one
+* Medical director maintains over hospital resources --- one to many
+* Hospital resources consist of staff information, type of staff, staff’s academic  information, and staff’s work experience. --- many to many or many to one 
+* Patient books appointment --- one to many
+* Patients have next of kin (close relatives) --- one to many or many to many since patients can be from the same family and have the same relatives. 
+* Patients become outpatients or inpatients --- one to one
+* Appointment to visit local doctor --- one to one
+* Hospital has patients and outpatients or patients and outpatients go to hospital --- one to many or many to one 
+* Patient takes Medication --- one to many
+* Medication comes from Pharmaceutical supplies --- many to many 
+* Suppliers supply Pharmaceutical supplies and surgical and nonsurgical supplies --- many to many
+
+
+
+
+Staff: Staff in the hospital
+Patients: Patients in the hospital
+Patients have Next of Kin: Close relatives of patients in the hospital 
+Local Doctor: Doctors in the hospital 
+Patient Appointments: Patient Appointments in the hospital 
+Outpatients: Patients leaving the hospital 
+Inpatients: Patients coming into the hospital 
+===============================================================
+
+
+* Medical director has a primary key ID
+* Wards have primary key Ward ID and Telephone extension
+* Ward requisition has a primary key Requisition Number, also has WardNo. And ward names as foreign keys referring to wards(wardNo., ward name) where wards is a table and patientNO. Which refers to Patients(patientNo.) where patients are a table.
+* Patients have patientNo. As primary key and hospital name as a foreign key referring to Hospital(hospitalName) where hospital is a table.
+* Patients appointments have  staff  ID as foreign key referring to Hospital resources. 
+* Next of kin table has patientNo. As a foreign key from patients table and kin name as primary key
+* Hospital resources have staff ID as primary key.
+* Staff info, type of staff, staff’s work experience and Staff's academic information have staff ID as a foreign key referring to hospital resources.
+* Local doctor has phone number as primary key
+* Pharmaceutical Supplies has DrugNo., DrugName, DrugDescription, Dosage and method used as foreign key from Patient medication table.
+* Suppliers have Supplier ID as primary key 
+* Outpatients have PatientNo., First Name, last name, address, PhoneNo., DateOfBirth and sex as foreign keys referring to patients
+* Patient medication has drugNo. As primary key and patientNo. As foreign key referring to the patients table.
+=============================================================
+
+
+* Hospital is independent.
+* Patients, outpatients, wards, medical director, and medical and nonmedical supplies depend on the hospital.
+* Suppliers are independent.
+* medical and nonmedical supplies and pharmaceutical supplies depend on suppliers.
+* Patients depend on next of kin (close relatives) or don’t if they do not have any relatives.
+* Patients depend on appointments and local doctors.
+* Hospital resources depend on the medical director.
+* Staff info, staff’s work experience, staff’s academic info, and type of staff depend on hospital resources.
+* Ward requisitions depend on wards.
+* Patient depends on patient medication
+* Patient medication depends on pharmaceutical supplies.
